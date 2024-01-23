@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <title><%= title %></title>
+  <style>
+    body {
+      background-color: #000000; /* Black */
+      color: #ffffff; /* White */
+    }
+
+    .container {
+      background-color: #333333; /* Dark Grey */
+      border: 1px solid #555555; /* Medium Grey */
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 4%;
+    }
+
+    .form-label {
+      color: #dddddd; /* Light Grey */
+    }
+
+    .form-control {
+      background-color: #444444; /* Darker Grey */
+      color: #dddddd; /* Light Grey */
+      border: 1px solid #555555; /* Medium Grey */
+    }
+
+    .btn-warning {
+      background-color: #FFA500; /* Orange */
+      border: none;
+    }
+
+    .btn-warning:hover {
+      background-color: #FF8C00; /* Darker Orange */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- PARTIAL FOR HEADER -->
+  <%- include('_header') %>
+  
+
+  <% if (locals.user) { %>
+  <div class="container mt-4 col-md-4">
+    <h4 class="text-center mb-4">Add an Interview</h4>
+
+    <form class="border p-3" action="/interview/create" method="POST">
+
+      <div class="mb-3">
+        <label for="company" class="form-label">Company</label>
+        <input type="text" class="form-control" placeholder="Company name..." id="company" name="company" required />
+      </div>
+
+      <div class="mb-3">
+        <label for="date" class="form-label">Date</label>
+        <input type="date" class="form-control" id="date" name="date" required />
+      </div>
+
+      <div class="mb-3">
+        <button type="submit" class="btn btn-warning">Add Interview</button>
+      </div>
+
+    </form>
+  </div>
+  <% } %>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
